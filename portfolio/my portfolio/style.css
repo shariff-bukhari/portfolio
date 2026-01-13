@@ -51,6 +51,14 @@ body {
 }
 .nav-links a:hover { color: var(--primary-color); }
 
+/* Burger menu */
+.burger {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-main);
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -134,6 +142,32 @@ section { padding: 100px 10%; }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hero h1 { font-size: 2.5rem; }
+
+    .burger {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 10%;
+        background: var(--card-bg);
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+        border-radius: 10px;
+        display: none;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
 }
