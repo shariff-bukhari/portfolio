@@ -24,6 +24,13 @@
         </div>
         
     </nav>
+    <script>
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        burger.addEventListener('click', () => {navLinks.classList.toggle('active');});
+    </script>
+
 
     <section id="home" class="hero">
         <div class="hero-content reveal">
@@ -141,3 +148,4 @@
 </body>
 
 </html>
+
