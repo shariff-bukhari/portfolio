@@ -128,6 +128,155 @@ section { padding: 100px 10%; }
     margin-right: 5px;
 }
 
+/* Project Slideshow Styles */
+.slider-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.projects-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 450px;
+}
+
+.project-slide {
+    min-width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-slide.active {
+    opacity: 1;
+}
+
+.project-content {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    overflow: hidden;
+    width: 90%;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Clips any image overflow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1e293b; /* Fallback background color */
+}
+
+.project-image-generate {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: white;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This is the "magic" property that crops the image to fit */
+    object-position: center; /* Keeps the center of the image visible */
+    transition: transform 0.5s ease;
+}
+
+/* Add a zoom effect when the user hovers over the project card */
+.project-content:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.project-details {
+    padding: 2.5rem;
+}
+
+.project-category {
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.project-details h3 {
+    font-size: 1.8rem;
+    margin: 0.5rem 0 1rem;
+}
+
+.btn-link {
+    text-decoration: none;
+    color: var(--text-main);
+    margin-right: 1.5rem;
+    font-size: 0.9rem;
+    border-bottom: 2px solid var(--primary-color);
+    transition: var(--transition);
+}
+
+.btn-link:hover {
+    color: var(--primary-color);
+}
+
+/* Controls */
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 1.5rem;
+}
+
+.slider-controls button {
+    background: var(--card-bg);
+    border: 1px solid var(--primary-color);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.slider-controls button:hover {
+    background: var(--primary-color);
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: var(--text-dim);
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: var(--primary-color);
+    width: 25px;
+    border-radius: 10px;
+}
+
+/* Mobile responsive slider */
+@media (max-width: 768px) {
+    .project-content { grid-template-columns: 1fr; }
+    .project-image { height: 150px; font-size: 3rem; }
+    .projects-slider { height: 600px; }
+}
+
+
 /* Animations */
 .reveal {
     opacity: 0;
@@ -171,3 +320,4 @@ section { padding: 100px 10%; }
         font-size: 2.5rem;
     }
 }
+
